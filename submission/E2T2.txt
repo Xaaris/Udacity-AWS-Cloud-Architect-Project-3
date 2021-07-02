@@ -1,0 +1,43 @@
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+
+# Vulnerabilities:
+
+## Config rule: securityhub-ec2-instance-no-public-ip
+Checks whether Amazon Elastic Compute Cloud (Amazon EC2) instances have a public IP association. The rule is NON_COMPLIANT if the publicIp field is present in the Amazon EC2 instance configuration item. This rule applies only to IPv4.
+### Possible remediation:
+Make instances not directly accesible from the internet.
+
+## Config rule: securityhub-s3-bucket-server-side-encryption-enabled
+Checks that your Amazon S3 bucket either has Amazon S3 default encryption enabled or that the S3 bucket policy explicitly denies put-object requests without server side encryption.
+### Possible remediation:
+Enable encryption for S3 buckets.
+
+## Config rule: securityhub-restricted-ssh
+Checks whether the incoming SSH traffic for the security groups is accessible. The rule is compliant when the IP addresses of the incoming SSH traffic in the security groups are restricted. This rule applies only to IPv4.
+### Possible remediation:
+Disable access via ssh.
+
+
+## Inspector finding: sshd process on instance listening on port 22
+### Possible remediation:
+Disable access via ssh.
+
+## Inspector finding: ssh login via password
+### Possible remediation:
+Only allow access via key.
+
+## Inspector finding: python3 process on instance listening on port 5000
+### Possible remediation:
+Disable direct access from the internet.
+
+
+## Security hub: Ensure no security groups allow ingress from 0.0.0.0/0 to port 22
+### Possible remediation:
+Disable access via ssh.
+
+## Security hub: Ensure no security groups allow ingress from 0.0.0.0/0 to port 3389
+### Possible remediation:
+Tighten security froup.

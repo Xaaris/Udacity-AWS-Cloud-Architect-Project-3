@@ -1,0 +1,9 @@
+
+
+# Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+    - Prevent ssh access to the web instance via the security group.
+    - ssh access to the web instance could be blocked via an Network ACL
+    - Alternatively the web instance could be placed inside the private VPC without direct internet access.
+
+# Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+    - A least privileged IAM policy could have given access to the free recipe bucket without also giving access to the secret recipe bucket.

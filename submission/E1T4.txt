@@ -1,0 +1,12 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1: Web Service Instance in public subnet
+The Web Service Instance should be placed inside the private VPC instead of the public one.
+Even though it is called the "Trusted Public Subnet", there shouldn't be something like a trusted subnet.
+As this instance does not need to be accessible from the internet directly, it can be placed inside the private subnet.
+
+
+# Poor practice 2: Access to S3 buckets via the Internet
+The S3 buckets, as configured in the diagram are accessible from the internet.
+This shouldn't be the case and the buckets should rather be accessed via VPC endpoints by the Web Service Instance.
+THis way it can be better controlled and audited who has access to what resources.
