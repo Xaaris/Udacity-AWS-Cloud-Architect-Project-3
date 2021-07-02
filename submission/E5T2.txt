@@ -1,0 +1,20 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+    - Terrascan: https://github.com/accurics/terrascan
+
+### Example vulnerability
+    - Not a vulnerability but the tool will e.g. recommend to you to enable S3 versioning
+    - Notifies you when S3 encryption is disabled.
+
+##Scan AMI’s or containers for OS vulnerabilities
+    - Clair: https://github.com/quay/clair
+
+### Example vulnerability
+    - Finds known CVEs
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+    - AWS Config: https://aws.amazon.com/config/
+
+### Example vulnerability
+    - Can e.g. check that you have strong password policies in place.
